@@ -6,9 +6,9 @@ A virtual training coach.
 - [Follow us on instagram](https://www.instagram.com/fitzome/).
 
 ## Overview
-| Home | Calendar | Workouts | Training Plans | Virtual Coach Chat |
+| Calendar | Workouts | Training Plans | Virtual Coach Chat |
 |--|--|--|--|--|  
-|![](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/img/home.png)|![](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/img/training_calendar.png)|![](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/img/custom_workouts.png)|![](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/img/custom_traning_plans.png)|![](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/img/coach_chat.png)
+|![](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/img/training_calendar.png)|![](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/img/custom_workouts.png)|![](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/img/custom_traning_plans.png)|![](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/img/coach_chat.png)
 
 ## To do
 - [ ] Refactor code.
