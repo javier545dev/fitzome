@@ -4,8 +4,8 @@ A virtual coach
 
 ## to do
 
-    - Refactor code
-    - Add firebase distribution actions
+    - Refactor code (Flat list ones)
+    - Allow users to update their workouts
     - Add remote config
 
 ## Writing and formatting syntax
