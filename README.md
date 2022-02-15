@@ -1,8 +1,14 @@
 # fitzome
 
-A virtual training app.
+A virtual training coach.
+- [Download the app](https://play.google.com/store/apps/details?id=com.app_fitzome).
+- [Follow us on facebook](https://www.facebook.com/fitzome).
+- [Follow us on instagram](https://www.instagram.com/fitzome/).
 
-## Features
+## Overview
+| Home | Calendar | Workouts | Training Plans | Virtual Coach Chat |
+|--|--|--|--|--|  
+|![](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/img/home.png)|![](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/img/training_calendar.png)|![](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/img/custom_workouts.png)|![](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/img/custom_traning_plans.png)|![](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/img/coach_chat.png)
 
 ## To do
 - [ ] Refactor code.
