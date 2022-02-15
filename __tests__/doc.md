@@ -1,0 +1,1 @@
+https://medium.com/@benjamingowers/microblog-jest-test-patterns-for-react-native-f788b7e3e42f

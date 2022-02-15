@@ -1,0 +1,58 @@
+name: Unit tests
+
+on:
+  pull_request:
+    branches:
+      - develop
+  push:
+    branches:
+      - develop
+
+jobs:
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      # clone project
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@master
+      - uses: c-hive/gha-yarn-cache@v1
+      # install node
+      - name: Install node modules
+        run: |
+          yarn install
+      # run unit tests
+      - name: Run tests
+        run: |
+          yarn test
+      # Decode Google services configuration file
+      - name: Decode google-services.json
+        env:
+          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+        run: echo $GOOGLE_SERVICES_JSON > ./android/app/google-services.json
+      # create keystore file
+      - name: Decode keystore file
+        run: echo -n "$ANDROID_SIGNING_KEY" | base64 -d > ./fitzome-key.keystore
+        working-directory: ./android/app
+        env:
+          ANDROID_SIGNING_KEY: ${{ secrets.ANDROID_SIGNING_KEY }}
+      # create apk
+      - name: Make Gradlew Executable
+        run: cd android && chmod +x ./gradlew
+      - name: Build apk
+        run: |
+          cd android && ./gradlew assembleRelease
+        env:
+          ANDROID_SIGNING_ALIAS: ${{ secrets.ANDROID_SIGNING_ALIAS }}
+          ANDROID_SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_SIGNING_KEY_PASSWORD }}
+          ANDROID_SIGNING_STORE_PASSWORD: ${{ secrets.ANDROID_SIGNING_STORE_PASSWORD }}
+          WIT_AI_URL: ${{ secrets.WIT_AI_URL }}
+          WIT_AI_TOKEN: ${{ secrets.WIT_AI_TOKEN }}
+          GOOGLE_WEB_CLIENT_ID: ${{ secrets.GOOGLE_WEB_CLIENT_ID }}
+      # save apk
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Signed App Apk
+          path: android/app/build/outputs/apk/release/app-release.apk

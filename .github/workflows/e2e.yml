@@ -1,0 +1,58 @@
+name: e2e
+
+on:
+  push:
+    branches:
+      - test
+
+jobs:
+  build:
+    name: e2e
+    runs-on: macOS-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Set up
+        run: |
+          npm install -g react-native-cli
+          npm install -g detox-cli
+          npm install -g yarn
+
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+
+      - name: Install Yarn Dependencies
+        run: yarn install
+
+      - name: Install Java JDK
+        uses: joschi/setup-jdk@v1
+        with:
+          java-version: 'openjdk8'
+          architecture: 'x64'
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+
+      - name: Run Unit Test(s)
+        run: yarn test
+
+      - name: Make Gradlew Executable
+        run: cd android && chmod +x ./gradlew
+
+      - name: Detox Build
+        run: yarn build:android-debug
+        env:
+          WIT_AI_URL: ${{ secrets.WIT_AI_URL }}
+          WIT_AI_TOKEN: ${{ secrets.WIT_AI_TOKEN }}
+          GOOGLE_WEB_CLIENT_ID: ${{ secrets.GOOGLE_WEB_CLIENT_ID }}
+      - name: Run Detox Test(s)
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          target: default
+          arch: x86_64
+          profile: pixel
+          avd-name: Pixel_2_API_28
+          script: bash ${{ github.workspace }}/scripts/run-e2e-android-release.sh
