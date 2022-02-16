@@ -1,6 +1,7 @@
 # Fitzome
 
-A virtual training coach.
+Fitzome is a fitness app for people that want to get a personalized approach to physical training without the need to hire a professional trainer.
+
 - [Download the app](https://play.google.com/store/apps/details?id=com.app_fitzome).
 - [Follow us on facebook](https://www.facebook.com/fitzome).
 - [Follow us on instagram](https://www.instagram.com/fitzome/).
@@ -32,11 +33,11 @@ A virtual training coach.
 ## How to run the app
 Follow the next steps to build your own app:
 
-1.- Clone the repo `https://github.com/pedro-rivas/fitzome.git`;
-2.- Install the needed dependencies. Run `yarn install` in your root folder (ej. `fitzome/`).
-3.- Run `yarn clean`.
-4.- Add the missing files.
-5.- Run the project `yarn android`.
+1. Clone the repo `https://github.com/pedro-rivas/fitzome.git`;
+2. Install the needed dependencies. Run `yarn install` in your root folder (ej. `fitzome/`).
+3. Run `yarn clean`.
+4. Add the [missing files](https://github.com/pedro-rivas/fitzome/blob/dev/app/docs/missingFiles.md).
+5. Run the project `yarn android`.
 
 
 ## To do
